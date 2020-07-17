@@ -6,12 +6,16 @@
 <sup>a</sup> Department of Genetics, University of Cambridge, Downing Street, Cambridge, CB2 3EH
 </sub>
 
-### Citation
+#### Citation
 
 Edwards, C.A. & Ferguson-Smith, A.C. (2020) ASE Meta Analysis Paper <s>[DOI]</s>
 
 > Include BLUEPRINT data ?
 
+
+## Methods
+
+TO DO: Paragraph for paper methods
 
 ## Data Sets
 
