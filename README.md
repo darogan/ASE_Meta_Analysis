@@ -12,20 +12,33 @@ Edwards, C.A., ... & Ferguson-Smith, A.C. (2020) ASE Meta Analysis Paper <s>[DOI
 
 > Include BLUEPRINT data ?
 
+> RENAME Teichman data set to Tuck_2018?
 
 ## Methods
 
 TO DO: Paragraph for paper methods
 
+## Analysis: Quality Check
+
+> A sanity check to make sure all the samples behave in a similar, or expected manner
+
+| Dataset | Read Counts | Example: Meg3 |
+| ------- | :---------: | :-----------: |
+| Andergassen_2015   | TO ADD | TO ADD |
+| Babak_2015 | <IMG SRC='Figures/ExploringReadFiltering_Babak.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Babak.pdf)] | <IMG SRC='Figures/Babak_2015_Comp_KnownImprinted_Meg3.png' height=200px> <BR> [[PDF](Figures/Babak_2015_Comp_KnownImprinted_Meg3.pdf)] |
+| Bonthuis_2015 <BR> DRN TO ADD  | <IMG SRC='Figures/ExploringReadFiltering_Bonthuis.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Bonthuis.pdf)] | <IMG SRC='Figures/Bonthuis_2015_Comp_KnownImprinted_Meg3.png' height=200px> <BR> [[PDF](Figures/Bonthuis_2015_Comp_KnownImprinted_Meg3.pdf)] |
+| Perez_2015         | TO ADD | TO ADD |
+| Teichman_ESCs_NPCs | TO ADD | TO ADD |
+
 ## Data Sets
 
 | Dataset            | Publication | Details |
 | ------------------ | :---------: | ------- |
-| Andergassen_2015   | [[DOI]()]   | Cast/EiJ X FVB strains |
-| Babak_2015         | [[DOI]()]   | C57Bl/6J x Cast (maternal allele first) |
-| Bonthuis_2015      | [[DOI]()]   | C57Bl/6J x Cast (maternal allele first) |
-| Perez_2015         | [[DOI]()]   | F1i (F1 hybrid) C57Bl/6J father and Cast/EiJ mother = CB	; F1r (F1 hybrid) Cast/EiJ father and C57Bl/6J mother = BC |
-| Teichman_ESCs_NPCs | [[DOI]()]   | Cell: C57Bl/6J and Cast/EiJ (maternal allele first) |
+| Andergassen_2015   | [[DOI](https://doi.org/10.7554/eLife.25125)]   | Cast/EiJ X FVB strains |
+| Babak_2015         | [[DOI](https://doi.org/10.1038/ng.3274)]   | C57Bl/6J x Cast (maternal allele first) |
+| Bonthuis_2015      | [[DOI](https://doi.org/10.1016/j.celrep.2015.07.017)]   | C57Bl/6J x Cast (maternal allele first) |
+| Perez_2015         | [[DOI](https://doi.org/10.7554/eLife.07860)]   | F1i (F1 hybrid) C57Bl/6J father and Cast/EiJ mother = CB	; F1r (F1 hybrid) Cast/EiJ father and C57Bl/6J mother = BC |
+| Teichman_ESCs_NPCs | [[DOI](https://doi.org/10.26508/lsa.201800124)]   | Cell: C57Bl/6J and Cast/EiJ (maternal allele first) |
 
 > Andergassen_2015
 
