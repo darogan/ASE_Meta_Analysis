@@ -27,7 +27,7 @@ TO DO: Paragraph for paper methods
 | Perez_2015         | [[DOI]()]   | F1i (F1 hybrid) C57Bl/6J father and Cast/EiJ mother = CB	; F1r (F1 hybrid) Cast/EiJ father and C57Bl/6J mother = BC |
 | Teichman_ESCs_NPCs | [[DOI]()]   | Cell: C57Bl/6J and Cast/EiJ (maternal allele first) |
 
-> Andergassen_2018
+> Andergassen_2015
 
 <sub>
 
