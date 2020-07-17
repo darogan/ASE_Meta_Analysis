@@ -8,7 +8,7 @@
 
 #### Citation
 
-Edwards, C.A. & Ferguson-Smith, A.C. (2020) ASE Meta Analysis Paper <s>[DOI]</s>
+Edwards, C.A., ... & Ferguson-Smith, A.C. (2020) ASE Meta Analysis Paper <s>[DOI]</s>
 
 > Include BLUEPRINT data ?
 
