@@ -21,15 +21,13 @@ TO DO: Paragraph for paper methods
 
 | Dataset            | Publication | Details |
 | ------------------ | :---------: | ------- |
-| Andergassen_2015   | [[DOI]()]   |         |
-| Babak_2015         | [[DOI]()]   |         |
-| Bonthuis_2015      | [[DOI]()]   |         |
-| Perez_2015         | [[DOI]()]   |         |
-| Teichman_ESCs_NPCs | [[DOI]()]   |         |
+| Andergassen_2015   | [[DOI]()]   | Cast/EiJ X FVB strains |
+| Babak_2015         | [[DOI]()]   | C57Bl/6J x Cast (maternal allele first) |
+| Bonthuis_2015      | [[DOI]()]   | C57Bl/6J x Cast (maternal allele first) |
+| Perez_2015         | [[DOI]()]   | F1i (F1 hybrid) C57Bl/6J father and Cast/EiJ mother = CB	; F1r (F1 hybrid) Cast/EiJ father and C57Bl/6J mother = BC |
+| Teichman_ESCs_NPCs | [[DOI]()]   | Cell: C57Bl/6J and Cast/EiJ (maternal allele first) |
 
 > Andergassen_2018
-
-* Cast X FVB strains
 
 <sub>
 
@@ -52,8 +50,6 @@ TO DO: Paragraph for paper methods
 
 > Babak_2015
 
-* Bl6 x Cast maternal allele written first
-
 <sub>
 
 | Accession  | Tissue           | Cross | Replicate |
@@ -72,10 +68,6 @@ TO DO: Paragraph for paper methods
 </sub>
 
 > Bonthuis_2015
-
-* CB: Cast mother ? B6 father = CB
-* F1r: B6 mother ? Cast father = BC
-
 
 <sub>
 
@@ -153,10 +145,7 @@ TO DO: Paragraph for paper methods
 </sub>
 
 
-> Perez_2015
-
-* F1i an F1 hybrid derived from a C57Bl/6J father and a Cast/EiJ mother = CB		
-* F1r an F1 hybrid derived from a Cast/EiJ father and a C57Bl/6J mother = BC		
+> Perez_2015		
 
 <sub>
 
@@ -215,8 +204,6 @@ TO DO: Paragraph for paper methods
 
 > Teichman_ESCs_NPCs
 
-* Cells are from Bl6 and Castaneous crosses. Maternal Allele always written first
-
 <sub>
 
 | Accession  | Tissue           | Cross | Replicate |
@@ -234,7 +221,7 @@ TO DO: Paragraph for paper methods
 
 ## Data Processing
 
-### Download FASTQ files from EMBL-EBI European Nucleotide Archive
+### 1. Download FASTQ files from EMBL-EBI European Nucleotide Archive
 
 | Dataset            | WGET commands |
 | ------------------ | ------------- |
@@ -244,19 +231,19 @@ TO DO: Paragraph for paper methods
 | Perez_2015         | [Perez_2015.wget.sh](Code/Perez_2015.wget.sh)         |
 | Teichman_ESCs_NPCs | [Teichman_ESCs_NPCs.wget.sh](Code/Teichman_ESCs_NPCs.wget.sh) |
 
-### Trim low quality bases and adapter sequences
+### 2. Trim low quality bases and adapter sequences
 
 Using [TrimGalore!](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) run via the [ClusterFlow](http://clusterflow.io) pipeline tool. Single and paired-end reads are automatically determined and run accordingly.
 
 `cf trim_galore *.fq.gz` or `cf trim_galore *.fastq.gz`
 
-### Reference Genome Preparation
+### 3. Reference Genome Preparation
 
-#### Download the mouse SNPs file from the Mouse Genome Project at Sanger
+#### i. Download the mouse SNPs file from the Mouse Genome Project at Sanger
 
 [[mgp.v5.merged.snps_all.dbSNP142.vcf.gz](ftp://ftp-mouse.sanger.ac.uk/current_snps/mgp.v5.merged.snps_all.dbSNP142.vcf.gz)]
 
-#### Genome Prep
+#### ii. Genome Prep
 
 Assumes a directory, `GRCm38_fasta`, containing the BL6 GRCm38 reference genome fasta files
 
@@ -268,25 +255,25 @@ Assumes a directory, `GRCm38_fasta`, containing the BL6 GRCm38 reference genome 
 
 `SNPsplit_genome_preparation --vcf_file mgp.v5.merged.snps_all.dbSNP142.vcf.gz --reference_genome GRCm38_fasta/ --strain CAST_EiJ --strain2 FVB_NJ --dual_hybrid`
 
-### Align with HISAT2
+### 4. Align with HISAT2
 
-#### BL6 vs CAST crosses
+#### a. BL6 vs CAST crosses
 
 `cf --genome CAST_EiJ_N-masked hisat2 *.fq.gz`
 
-#### BL6 vs CAST crosses
+#### b. BL6 vs CAST crosses
 
 `cf --genome CAST_EiJ_FVB_NJ_dual_hybrid.based_on_GRCm38_N-masked hisat2 *.fq.gz`
 
-### Sort alignment files by name
+### 5. Sort alignment files by name
 
 `cf --params byname samtools_sort *N-masked_hisat2.bam`
 
-### SNPSplit
+### 6. SNPSplit
 
 Run via a custom clusterflow module [SNPSplit.cfmod.pl]](Code/SNPSplit.cfmod.pl), or command line.
 
-#### Via clusterflow
+#### a. Via clusterflow
 
 > For single-end reads: BL6 Vs CAST
 
@@ -304,7 +291,7 @@ Run via a custom clusterflow module [SNPSplit.cfmod.pl]](Code/SNPSplit.cfmod.pl)
 
 `cf --genome all_FVB_NJ_SNPs_CAST_EiJ_reference.based_on_GRCm38 --params sorted,paired SNPSplit *N-masked_hisat2_srtd.bam`
 
-#### Via command line
+#### b. Via command line
 
 > For BL6 Vs CAST crosses
 
@@ -325,13 +312,13 @@ for i in *N-masked_hisat2_srtd.bam;
   done
 ````
 
-### FeatureCounts
+### 7. FeatureCounts
 
 Gene counts from alignment files are calculated using featureCounts
 
 `cf --genome GRCm38 featureCounts *genome[12].bam`
 
-### Count Matrix Generation
+### 8. Count Matrix Generation
 
 A custom Rscript [DESeq2_featureCounts_2_CountsTables.R](Code/DESeq2_featureCounts_2_CountsTables.R) is used to make a single counts table from the individual featureCount files.
 
@@ -341,7 +328,7 @@ A custom Rscript [DESeq2_featureCounts_2_CountsTables.R](Code/DESeq2_featureCoun
 
 
 
-### Software Versions
+## Software Versions
 
 | Software    | Version | Citation |
 | ----------- | ------- | -------- |
@@ -352,13 +339,13 @@ A custom Rscript [DESeq2_featureCounts_2_CountsTables.R](Code/DESeq2_featureCoun
 | [featureCounts (subread)](http://subread.sourceforge.net/) | v1.5.0-p2 | [[DOI](https://doi.org/10.1093/bioinformatics/btt656)] |
 | [SNPsplit](https://www.bioinformatics.babraham.ac.uk/projects/SNPsplit/) | v0.3.4 | [[DOI](https://dx.doi.org/10.12688%2Ff1000research.9037.2) |
 
-### Links ###
+## Links
 
 Description   | URL
 ------------- | ----------
 Publication   | <s>[Journal](https://) and [DOI](https://doi.org/)</s>
 
 
-### Contact
+## Contact
 
 Contact Russell S. Hamilton (rsh46@cam.ac.uk)
