@@ -342,7 +342,31 @@ A custom Rscript [DESeq2_featureCounts_2_CountsTables.R](Code/DESeq2_featureCoun
 
 `Rscript DESeq2_featureCounts_2_CountsTables.R FOLDERNAME`
 
+## Allelic Bias Analysis
 
+R code available in [[ExploreBiasVsDist.R](Code/ExploreBiasVsDist.R)]. This is exploratory code and needs tidying up before publishing. Code works, but not commented or structured in a sensible way.
+
+### Isolde Processed Data
+
+| Tissue | ASE | BA | UN |
+| ------ | --- | -- | -- |
+| ARN    | [[ISoLDE_result_ASE_04-07-2020_18-27-13.tsv](Data/Isolde/ISoLDE_result_ASE_04-07-2020_18-27-13.tsv)] | [[ISoLDE_result_BA_04-07-2020_18-27-13.tsv](Data/Isolde/ISoLDE_result_BA_04-07-2020_18-27-13.tsv)] | [[ISoLDE_result_UN_04-07-2020_18-27-13.tsv](Data/Isolde/ISoLDE_result_UN_04-07-2020_18-27-13.tsv)] |
+| DRN    | [[ISoLDE_result_ASE_04-20-2020_16-15-29.tsv](Data/Isolde/ISoLDE_result_ASE_04-20-2020_16-15-29.tsv)] | [[ISoLDE_result_BA_04-20-2020_16-15-29.tsv](Data/Isolde/ISoLDE_result_BA_04-20-2020_16-15-29.tsv)] | [[ISoLDE_result_UN_04-20-2020_16-15-29.tsv](Data/Isolde/ISoLDE_result_UN_04-20-2020_16-15-29.tsv)] |
+| Liver  | [[ISoLDE_result_ASE_04-08-2020_11-40-18.tsv](Data/Isolde/ISoLDE_result_ASE_04-08-2020_11-40-18.tsv)] | [[ISoLDE_result_BA_04-08-2020_11-40-18.tsv](Data/Isolde/ISoLDE_result_BA_04-08-2020_11-40-18.tsv)] | [[ISoLDE_result_UN_04-08-2020_11-40-18.tsv](Data/Isolde/ISoLDE_result_UN_04-08-2020_11-40-18.tsv)] |
+| Muscle | [[ISoLDE_result_ASE_04-08-2020_15-28-14.tsv](Data/Isolde/ISoLDE_result_ASE_04-08-2020_15-28-14.tsv)] | [[ISoLDE_result_BA_04-08-2020_15-28-14.tsv](Data/Isolde/ISoLDE_result_BA_04-08-2020_15-28-14.tsv)] | [[ISoLDE_result_UN_04-08-2020_15-28-14.tsv](Data/Isolde/ISoLDE_result_UN_04-08-2020_15-28-14.tsv)] |
+| P60_Cerebellum | [[ISoLDE_result_ASE_06-23-2020_16-27-10.tsv](Data/Isolde/ISoLDE_result_ASE_06-23-2020_16-27-10.tsv)] | [[ISoLDE_result_BA_06-23-2020_16-27-10.tsv](Data/Isolde/ISoLDE_result_BA_06-23-2020_16-27-10.tsv)] | [[ISoLDE_result_UN_06-23-2020_16-27-10.tsv](Data/Isolde/ISoLDE_result_UN_06-23-2020_16-27-10.tsv)] |
+| P8_Cerebellum | [[ISoLDE_result_ASE_06-23-2020_16-21-15.tsv](Data/Isolde/ISoLDE_result_ASE_06-23-2020_16-21-15.tsv)] | [[ISoLDE_result_BA_06-23-2020_16-21-15.tsv](Data/Isolde/ISoLDE_result_BA_06-23-2020_16-21-15.tsv)] | [[ISoLDE_result_UN_06-23-2020_16-21-15.tsv](Data/Isolde/ISoLDE_result_UN_06-23-2020_16-21-15.tsv)] |
+
+### Bias Vs Distance for ICR
+
+
+<IMG SRC="Figures/ICR_Dist_vs_Bias_tissue.png" WIDTH=750>
+
+[[PDF Version](Figures/ICR_Dist_vs_Bias_tissue.pdf)]
+
+### Genome-wide Bias Vs Distance
+
+Needs completing
 
 ## Software Versions
 

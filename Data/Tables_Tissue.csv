@@ -1,0 +1,13 @@
+﻿B-Cells,,,T-Cells,
+Gene,Direction,,Gene,Direction
+Peg13,Pat,,Airn,Pat
+Igf2r,Mat,,Gm16574,Pat
+Zrsr1,Pat,,Gm23833,Pat
+Commd1,Pat,,Gm7162,Pat
+Kcnq1ot1,Pat,,Peg13,Pat
+Impact,Pat,,Igf2r,Mat
+Gnas,Pat,,Commd1,Pat
+Gm16299,Pat,,Zrsr1,Pat
+,,,Kcnq1ot1,Pat
+,,,Impact,Pat
+,,,4930405O22Rik,Mat
