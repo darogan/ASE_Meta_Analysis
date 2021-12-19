@@ -43,13 +43,57 @@ library('RColorBrewer')
 library("eulerr")
 library("scales")
 
-baseDir <- "/Users/rhamilto/Documents/AFS-Projects"
+baseDir <- "/Users/rhamilto/OneDrive/CTR-MBP/Documents/CTR-Manuscripts/2021-Carol_Paper/ASE_Meta_Analysis/"
 setwd(baseDir)
 print(baseDir)
 
 
+#
+# Andergassen
+#
 
-table           <- read.csv(paste0(baseDir, "/", "babak.read.filter.txt"), header=F)
+table           <- read.csv(paste0(baseDir, "Data/", "andergassen.read.filter.txt"), header=F)
+colnames(table) <- c("Sample", "Stage", "ReadCount")
+table$Stage     <- gsub("genome1.bam",    "genome1",    table$Stage)
+table$Stage     <- gsub("genome2.bam",    "genome2",    table$Stage)
+table$Stage     <- gsub("unassigned.bam", "unassigned", table$Stage)
+table$Stage     <- gsub("bam",            "aligned",    table$Stage)
+head(table)
+
+if(table$Stage == "fastq"){ table$ReadCount = table$ReadCount/4}
+head(table)
+
+table$Tissue <- table$Sample
+table$Tissue <- gsub("SRR3085966", "adult Brain", table$Tissue)
+table$Tissue <- gsub("SRR3085967", "adult Brain", table$Tissue)
+table$Tissue <- gsub("SRR3085968", "adult Brain", table$Tissue)
+table$Tissue <- gsub("SRR3085969", "adult Brain", table$Tissue)
+table$Tissue <- gsub("SRR3085970", "adult Liver", table$Tissue)
+table$Tissue <- gsub("SRR3085971", "adult Liver", table$Tissue)
+table$Tissue <- gsub("SRR3085972", "adult Liver", table$Tissue)
+table$Tissue <- gsub("SRR3085973", "adult Liver", table$Tissue)
+table$Tissue <- gsub("SRR3085990", "adult Leg Muscle", table$Tissue)
+table$Tissue <- gsub("SRR3085991", "adult Leg Muscle", table$Tissue)
+table$Tissue <- gsub("SRR3085992", "adult Leg Muscle", table$Tissue)
+table$Tissue <- gsub("SRR3085993", "adult Leg Muscle", table$Tissue)
+
+pdf(paste0(baseDir, "Figures/ExploringReadFiltering_Andergassen",".pdf"),width=5,height=7, onefile=FALSE)
+par(bg=NA)
+ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
+  geom_line(alpha=0.5, show.legend=FALSE) +
+  geom_point() +
+  scale_x_discrete(name="Stage", limits=c("fastq", "aligned", "unassigned", "genome1", "genome2")) +
+  scale_y_continuous(name="Read Count", labels = comma) +
+  ggtitle("Andergassen_2015") +
+  theme_bw() +
+  theme(legend.position = "top")
+dev.off()
+
+#
+# Babak
+#
+
+table           <- read.csv(paste0(baseDir, "Data/", "babak.read.filter.txt"), header=F)
 colnames(table) <- c("Sample", "Stage", "ReadCount")
 table$Stage     <- gsub("genome1.bam",    "genome1",    table$Stage)
 table$Stage     <- gsub("genome2.bam",    "genome2",    table$Stage)
@@ -74,7 +118,7 @@ table$Tissue <- gsub("SRR823473", "AdultWholeBrain", table$Tissue)
 head(table)
 
 
-pdf(paste0(baseDir, "/ExploringReadFiltering_Babak",".pdf"),width=5,height=7, onefile=FALSE)
+pdf(paste0(baseDir, "Figures/ExploringReadFiltering_Babak",".pdf"),width=5,height=7, onefile=FALSE)
 par(bg=NA)
 ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
   geom_line(alpha=0.5, show.legend=FALSE) +
@@ -86,7 +130,9 @@ ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
   theme(legend.position = "top")
 dev.off()
 
-
+#
+# Bonthuis
+#
 
 table           <- read.csv(paste0(baseDir, "/", "bonthuis.read.filter.txt"), header=F)
 colnames(table) <- c("Sample", "Stage", "ReadCount")
@@ -168,7 +214,7 @@ table$Tissue <- gsub("SRR2086281", "Muscle", table$Tissue)
 table$Tissue <- gsub("SRR2086282", "Muscle", table$Tissue)
 
 
-pdf(paste0(baseDir, "/ExploringReadFiltering_Bonthuis",".pdf"),width=5,height=7, onefile=FALSE)
+pdf(paste0(baseDir, "Figures/ExploringReadFiltering_Bonthuis",".pdf"),width=5,height=7, onefile=FALSE)
 par(bg=NA)
 ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
   geom_line(alpha=0.5, show.legend=FALSE) +
@@ -180,6 +226,126 @@ ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
   theme(legend.position = "top")
 dev.off()
 
+
+#
+# Perez
+#
+
+table           <- read.csv(paste0(baseDir, "Data/", "perez.read.filter.txt"), header=F)
+colnames(table) <- c("Sample", "Stage", "ReadCount")
+table$Stage     <- gsub("genome1.bam",    "genome1",    table$Stage)
+table$Stage     <- gsub("genome2.bam",    "genome2",    table$Stage)
+table$Stage     <- gsub("unassigned.bam", "unassigned", table$Stage)
+table$Stage     <- gsub("bam",            "aligned",    table$Stage)
+head(table)
+
+if(table$Stage == "fastq"){ table$ReadCount = table$ReadCount/4}
+head(table)
+
+table$Tissue <- table$Sample
+table$Tissue <- gsub("SRR1952382", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952383", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952384", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952385", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952386", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952387", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952388", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952389", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952390", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952391", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952392", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952393", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952394", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952395", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952396", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952397", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952398", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952399", "P8 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952400", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952401", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952402", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952403", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952404", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952405", "P8 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952406", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952407", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952408", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952409", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952410", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952411", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952412", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952413", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952414", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952415", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952416", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952417", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952419", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952420", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952421", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952422", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952423", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952424", "P60 Female", table$Tissue)
+table$Tissue <- gsub("SRR1952425", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952426", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952427", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952428", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952429", "P60 Male", table$Tissue)
+table$Tissue <- gsub("SRR1952430", "P60 Male", table$Tissue)
+head(table)
+
+
+pdf(paste0(baseDir, "Figures/ExploringReadFiltering_Perez",".pdf"),width=5,height=7, onefile=FALSE)
+par(bg=NA)
+ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
+  geom_line(alpha=0.5, show.legend=FALSE) +
+  geom_point() +
+  scale_x_discrete(name="Stage", limits=c("fastq", "aligned", "unassigned", "genome1", "genome2")) +
+  scale_y_continuous(name="Read Count", labels = comma) +
+  ggtitle("Perez_2015") +
+  theme_bw() +
+  theme(legend.position = "top")
+dev.off()
+
+
+
+#
+# Teichman
+#
+
+table           <- read.csv(paste0(baseDir, "Data/", "teichman.read.filter.txt"), header=F)
+colnames(table) <- c("Sample", "Stage", "ReadCount")
+table$Stage     <- gsub("genome1.bam",    "genome1",    table$Stage)
+table$Stage     <- gsub("genome2.bam",    "genome2",    table$Stage)
+table$Stage     <- gsub("unassigned.bam", "unassigned", table$Stage)
+table$Stage     <- gsub("bam",            "aligned",    table$Stage)
+head(table)
+
+if(table$Stage == "fastq"){ table$ReadCount = table$ReadCount/4}
+head(table)
+
+table$Tissue <- table$Sample
+table$Tissue <- gsub("SRR6330118", "ESCs", table$Tissue)
+table$Tissue <- gsub("SRR6330119", "ESCs", table$Tissue)
+table$Tissue <- gsub("SRR6330120", "neural precursor cell (day 3)", table$Tissue)
+table$Tissue <- gsub("SRR6330121", "neural precursor cell (day 3)", table$Tissue)
+table$Tissue <- gsub("SRR6330122", "neural precursor cell (day 6)", table$Tissue)
+table$Tissue <- gsub("SRR6330123", "neural precursor cell (day 6)", table$Tissue)
+table$Tissue <- gsub("SRR6330124", "neural precursor cell (day 8)", table$Tissue)
+table$Tissue <- gsub("SRR6330125", "neural precursor cell (day 8)", table$Tissue)
+head(table)
+
+
+pdf(paste0(baseDir, "Figures/ExploringReadFiltering_Teichman",".pdf"),width=5,height=7, onefile=FALSE)
+par(bg=NA)
+ggplot(data=table, aes(x=Stage, y=ReadCount, colour=Tissue, group=Sample)) +
+  geom_line(alpha=0.5, show.legend=FALSE) +
+  geom_point() +
+  scale_x_discrete(name="Stage", limits=c("fastq", "aligned", "unassigned", "genome1", "genome2")) +
+  scale_y_continuous(name="Read Count", labels = comma) +
+  ggtitle("Teichman_ESCs_NPCs") +
+  theme_bw() +
+  theme(legend.position = "top")
+dev.off()
 
 
 message("+-------------------------------------------------------------------------------")

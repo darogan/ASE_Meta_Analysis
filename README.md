@@ -25,13 +25,13 @@ Raw sequencing read FASTQ files were downloaded from EMBL-EBI European Nucleotid
 
 > A sanity check to make sure all the samples behave in a similar, or expected manner
 
-| Dataset | Read Counts | Example: Meg3 |
-| ------- | :---------: | :-----------: |
-| Andergassen_2015   | TO ADD | TO ADD |
-| Babak_2015 | <IMG SRC='Figures/ExploringReadFiltering_Babak.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Babak.pdf)] | <IMG SRC='Figures/Babak_2015_Comp_KnownImprinted_Meg3.png' height=200px> <BR> [[PDF](Figures/Babak_2015_Comp_KnownImprinted_Meg3.pdf)] |
-| Bonthuis_2015 <BR> DRN TO ADD  | <IMG SRC='Figures/ExploringReadFiltering_Bonthuis.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Bonthuis.pdf)] | <IMG SRC='Figures/Bonthuis_2015_Comp_KnownImprinted_Meg3.png' height=200px> <BR> [[PDF](Figures/Bonthuis_2015_Comp_KnownImprinted_Meg3.pdf)] |
-| Perez_2015         | TO ADD | TO ADD |
-| Teichman_ESCs_NPCs | TO ADD | TO ADD |
+| Dataset | Read Counts |
+| ------- | :---------: |
+| Andergassen_2015   | <IMG SRC='Figures/ExploringReadFiltering_Andergassen.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Andergassen.pdf)] |
+| Babak_2015 | <IMG SRC='Figures/ExploringReadFiltering_Babak.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Babak.pdf)] |
+| Bonthuis_2015 <BR> DRN TO ADD  | <IMG SRC='Figures/ExploringReadFiltering_Bonthuis.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Bonthuis.pdf)] | 
+| Perez_2015         | <IMG SRC='Figures/ExploringReadFiltering_Perez.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Perez.pdf)] |
+| Teichman_ESCs_NPCs | <IMG SRC='Figures/ExploringReadFiltering_Teichman.png' height=200px> <BR> [[PDF](Figures/ExploringReadFiltering_Teichman.pdf)] |
 
 ## Data Sets
 
