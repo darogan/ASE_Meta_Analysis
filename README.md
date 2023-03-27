@@ -8,7 +8,7 @@ Code to accompany Edwards et al, 2023, https://doi.org/10.7554/eLife.83364
 
 Edwards, C.A., Watkisnon, W.M.D., Telerman, S.B., Hulsmann, L.C., Hamilton, R.S. & Ferguson-Smith, A.C. (2023) Reassessment of weak parent-of-origin expression bias shows it rarely exists outside of known imprinted regions. eLife 12:e83364 [[eLife](https://elifesciences.org/articles/83364)] [[DOI]( https://doi.org/10.7554/eLife.83364)]
 
-bioRxiv preprint available at: https://doi.org/10.1101/2022.08.21.504536
+> bioRxiv preprint available at: https://doi.org/10.1101/2022.08.21.504536
 
 <sub>
 Department of Genetics, University of Cambridge, Downing Street, Cambridge, CB2 3EH
