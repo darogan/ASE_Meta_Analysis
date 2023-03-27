@@ -13,8 +13,6 @@ Department of Genetics, University of Cambridge, Downing Street, Cambridge, CB2 
 </sub>
 
 
-> RENAME Teichman data set to Tuck_2018?
-
 ## Methods
 <div style="text-align: justify">
 
