@@ -1,16 +1,17 @@
 # ASE Meta Analysis Paper
 
-**Carol A. Edwards<sup>a</sup>, ... & Anne C. Ferguson-Smith<sup>a</sup>**
+Code to accompany Edwards et al, 2023, https://doi.org/10.7554/eLife.83364
 
-<sub>
-<sup>a</sup> Department of Genetics, University of Cambridge, Downing Street, Cambridge, CB2 3EH
-</sub>
+
 
 #### Citation
 
-Edwards, C.A., ... & Ferguson-Smith, A.C. (2020) ASE Meta Analysis Paper <s>[DOI]</s>
+Edwards, C.A., Watkisnon, W.M.D., Telerman, S.B., Hulsmann, L.C., Hamilton, R.S. & Ferguson-Smith, A.C. (2023) Reassessment of weak parent-of-origin expression bias shows it rarely exists outside of known imprinted regions. eLife 12:e83364 [[eLife](https://elifesciences.org/articles/83364)] [[DOI]( https://doi.org/10.7554/eLife.83364)]
 
-> Include BLUEPRINT data ?
+<sub>
+Department of Genetics, University of Cambridge, Downing Street, Cambridge, CB2 3EH
+</sub>
+
 
 > RENAME Teichman data set to Tuck_2018?
 
@@ -383,9 +384,9 @@ Needs completing
 
 Description   | URL
 ------------- | ----------
-Publication   | <s>[Journal](https://) and [DOI](https://doi.org/)</s>
+Publication   | https://doi.org/10.7554/eLife.83364
 
 
 ## Contact
 
-Contact Russell S. Hamilton (rsh46@cam.ac.uk)
+Contact Russell S. Hamilton (darogan@gmail.com)
